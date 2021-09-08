@@ -1,7 +1,7 @@
 # Cryptography
 
 ## Hill Cipher
-- The key should be supplied as a sequence of integers seperated by commas.
+- The keyfile should contain the key as a sequence of integers seperated by commas. No new lines should be used.
 - The plaintext may include newlines as well.
 - The key used in encryption and decryption must be the same. The key will be inverted by the decryption code itself.
 
