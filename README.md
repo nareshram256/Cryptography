@@ -5,6 +5,12 @@
 - The plaintext may include newlines as well.
 - The key used in encryption and decryption must be the same. The key will be inverted by the decryption code itself.
 
+### Libraries used
+- numpy
+- string
+- sympy
+- sys
+
 ### Encryption
 Command to run from terminal:
 `python hill_encrypt.py <plaintext_file> <keyfile> <outputfile>`
