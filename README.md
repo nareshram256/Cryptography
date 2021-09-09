@@ -13,6 +13,7 @@
 - string
 - sympy
 - sys
+- collections
 
 ### Encryption
 Command to run from terminal:
