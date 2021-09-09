@@ -30,7 +30,7 @@ def get_key(key_file):
     return key, key_size
 
 def invert_key(key):
-    inv_key = Matrix(key).inv_mod(26)
+    inv_key = Matrix(key).inv_mod(26) % 26
     return np.array(inv_key)
 
 def preprocess_cipher(inputfile, key_size):
@@ -39,7 +39,8 @@ def preprocess_cipher(inputfile, key_size):
 
     # replace characters by integers and return a list
     # string.ascii_lowercase.index() replaces alphabets by ints in range 0 to 25.
-    processed_ciphertext = [string.ascii_lowercase.index(char) for char in ciphertext]
+    # processed_ciphertext = [string.ascii_lowercase.index(char) for char in ciphertext]
+    processed_ciphertext = [ord(char)-97 for char in ciphertext]
 
     # return reshaped numpy array
     return np.array(processed_ciphertext).reshape(-1, key_size)

@@ -1,6 +1,4 @@
 import numpy as np
-import string
-from sympy import Matrix
 import sys
 
 inputfile = sys.argv[1]
@@ -44,7 +42,7 @@ def remove(plaintext):
         special_chars.append(i)
     for i in range(91, 97):
         special_chars.append(i)
-    for i in range(123, 127):
+    for i in range(126, 127):
         special_chars.append(i)
     
     
@@ -69,8 +67,7 @@ def preprocess_input(inputfile, key_size):
         plaintext = plaintext + extra * "x"
 
     # replace characters by integers and return a list
-    # string.ascii_lowercase.index() replaces alphabets by ints in range 0 to 25.
-    processed_plaintext = [string.ascii_lowercase.index(char) for char in plaintext]
+    processed_plaintext = [ord(char) - 97 for char in plaintext]
 
     # return reshaped numpy array
     return np.array(processed_plaintext).reshape(-1, key_size)
