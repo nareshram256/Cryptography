@@ -5,7 +5,8 @@ from collections import Counter
 
 ciphertext = sys.argv[1]
 plaintext = sys.argv[2]
-best_key_file_name = sys.argv[3]
+complete_ciphertext = sys.argv[3]
+best_key_file_name = sys.argv[4]
     
 def remove(plaintext):
     # bring input to lower case and remove new line characters.
@@ -89,9 +90,10 @@ def mat_to_str(mat):
     mat_str = ",".join(list(map(str, mat.ravel())))
     return mat_str
 
-with open(ciphertext, "r") as c_file, open(plaintext, "r") as p_file:
+with open(ciphertext, "r") as c_file, open(plaintext, "r") as p_file, open(complete_ciphertext, "r") as file:
     ciphertext = c_file.read()
     plaintext = p_file.read()
+    complete_ciphertext = file.read()
 
 plaintext = remove(plaintext)
 best = [0,0,0]
@@ -116,13 +118,13 @@ for key_size in range(2, 11):
             break
         except ValueError:
             start += 1
-            if start > len(known_cipher) - key_size**2:
+            if start > len(ciphertext) - key_size**2:
                 break
-    if start > len(known_cipher) - key_size**2:
+    if start > len(ciphertext) - key_size**2:
         print("No invertible matrix for ciphertext found!")
         continue
 
-    decrypted_text = decrypt(preprocess(ciphertext, key_size), inverted_key)
+    decrypted_text = decrypt(preprocess(complete_ciphertext, key_size), inverted_key)
     IoC = index_of_coincidence(decrypted_text)
     print("IoC:", IoC)
     print("Key:")
