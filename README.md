@@ -25,7 +25,7 @@ Command to run from terminal:
 
 ### Analysis
 Command to run from terminal:<br>
-`python analysis.py <known_ciphertext_file> <known_ciphertext_file> <complete_ciphertext_file> <output_key_file>`
+`python analysis.py <known_ciphertext_file> <known_plaintext_file> <complete_ciphertext_file> <output_file>`
 
 ### Key Generator
 Command to run from terminal:
@@ -34,4 +34,4 @@ Command to run from terminal:
 ## Assumptions
 - Python version 3.7.11 or higher.
 - Write the file extensions when providing filepaths.
-- The chosen ciphertext and plaintext must be extracted from main ciphertext and plaintext starting at an integer multiple of the key_size used. For example: If the key_size is 5, the chosen ciphertext must be extracted started at index 5 or 10 or 15 and so on. Note that indexing starts at 0, not 1.
+- The chosen `<known_ciphertext_file>` and `<known_plaintext_file>` must be extracted from main ciphertext and plaintext starting at an integer multiple of the key_size used. For example: If the key_size is 5, the chosen ciphertext must be extracted started at index 5 or 10 or 15 and so on. Note that indexing starts at 0, not 1.
