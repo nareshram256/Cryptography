@@ -9,11 +9,11 @@
 - The key used in encryption and decryption must be the same. The key will be inverted by the decryption code itself.
 
 ### Libraries used
+- collections
 - numpy
 - string
 - sympy
 - sys
-- collections
 
 ### Encryption
 Command to run from terminal:
