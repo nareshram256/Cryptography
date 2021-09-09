@@ -32,6 +32,6 @@ Command to run from terminal:
 `python key_generator.py <key_size> <output_file>`
 
 ## Assumptions
-- Python version 3.7.11 or higer.
+- Python version 3.7.11 or higher.
 - Write the file extensions when providing filepaths.
 - The chosen ciphertext and plaintext must be extracted from main ciphertext and plaintext starting at an integer multiple of the key_size used. For example: If the key_size is 5, the chosen ciphertext must be extracted started at index 5,10,15,20 and so on.
