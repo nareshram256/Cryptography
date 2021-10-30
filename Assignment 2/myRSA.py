@@ -6,7 +6,7 @@ import textwrap
 
 # Key Generation
 def gen_strong_prime(low):
-    prime = random.randint(low, 2*low)
+    prime = random.randint(low, 2*low)  # in first iteration need not be prime
     count = 0
     # print("\nCount:")
 

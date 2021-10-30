@@ -28,3 +28,4 @@ Command to run from terminal:<br>
 ### Assumption
 - When passing filenames write .txt as well.
 - Exponentiation handled by sympy.Pow()
+- Receiver's value of n in RSA key should be larger than sender's value of n.

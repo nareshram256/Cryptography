@@ -2,6 +2,8 @@ import myRSA as rsa
 import vignere as vig
 import sys
 
+# python dec.py <cipher> <vig_key_len> <sender> <reciever>
+
 # cipher
 cipher = sys.argv[1]
 with open(cipher ,"r") as f:
@@ -43,6 +45,6 @@ vig_key, vig_string = vig_string[:vig_key_len], vig_string[vig_key_len:]
 plain = vig.vig_decrypt(vig_string, vig_key)
 
 # write to disk
-output_filename = sender_name + "_plain.txt"
+output_filename = "decrypts/" + sender_name + "_dec.txt"
 with open(output_filename, "w") as w:
     w.write(plain)

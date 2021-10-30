@@ -4,6 +4,8 @@ import hashlib
 import re
 import sys
 
+# python CA.py <username>
+
 user = sys.argv[1]
 user_pk_path = "public_keys/" + user + ".txt"
 user_sk_path = "secret_keys/" + user + ".txt"

@@ -2,10 +2,10 @@ import numpy as np
 import re
 # import sys
 
-# # inp_path = sys.argv[1] + '.txt'
-# # key_path = sys.argv[2] + '.txt'
-# # cipher_path = sys.argv[3] + '.txt'
-# # dec_path = sys.argv[4] + '.txt'
+# inp_path = sys.argv[1] + '.txt'
+# key_path = sys.argv[2] + '.txt'
+# cipher_path = sys.argv[3] + '.txt'
+# dec_path = sys.argv[4] + '.txt'
 
 def process_inp(inp:str) -> str:
     '''
@@ -54,13 +54,13 @@ def vig_decrypt(cipher:str, key:str) -> str:
     '''
     return vig_encrypt(inp = cipher, key=key, dec=-1)
 
-# # with open(inp_path, "r") as i, open(key_path, "r") as k:
-# #     inp = i.read()
-# #     key = k.read()
+# with open(inp_path, "r") as i, open(key_path, "r") as k:
+#     inp = i.read()
+#     key = k.read()
 
-# # cipher = vig_encrypt(process_inp(inp), key)
-# # dec = vig_decrypt(cipher, key)
+# cipher = vig_encrypt(process_inp(inp), key)
+# dec = vig_decrypt(cipher, key)
 
-# # with open(cipher_path, "w") as c, open(dec_path, "w") as d:
-# #     c.write(cipher)
-# #     d.write(dec)
+# with open(cipher_path, "w") as c, open(dec_path, "w") as d:
+#     c.write(cipher)
+#     d.write(dec)

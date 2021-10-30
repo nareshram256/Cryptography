@@ -3,6 +3,8 @@ import myRSA as rsa
 import hashlib
 import re
 
+# python verify.py <username>
+
 # CA's public key
 ca_pk = (3311489, 17)
 

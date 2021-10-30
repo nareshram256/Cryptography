@@ -2,6 +2,8 @@ import myRSA as rsa
 import vignere as vig
 import sys
 
+# python enc.py <msg> <vig_key> <sender> <reciever>
+
 # message
 msg = sys.argv[1]
 with open(msg, "r") as f:
@@ -55,7 +57,7 @@ rsa_dec = rsa.encrypt(vig_blocks, sk_a)
 rsa_enc = rsa.encrypt(rsa_dec, pk_b)
 
 # write to disk
-output_filename = user_name + "_cipher.txt"
+output_filename = "ciphers/" + user_name + "_cipher.txt"
 with open(output_filename, "w") as w:
     for block in rsa_enc:
         w.write(block + "\n")
