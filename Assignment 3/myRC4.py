@@ -81,6 +81,10 @@ def randomness(text:bytes, counter_size:int):
 def rc4_analysis(key_size:int, counter_size:int, text:bytes):
     print("Calculating randomness...")
     indices = [2**j for j in range(1, 11)]
+
+    # vendor
+    # indices = [i for i in range(1,51)]
+
     k1 = secrets.token_bytes(key_size)
 
     r_dict = dict()
@@ -109,6 +113,7 @@ def rc4_analysis(key_size:int, counter_size:int, text:bytes):
 
 def plot_dict(r_dict:dict):
     indices = [2**j for j in range(1, 11)]
+    
     fig = plt.figure(figsize=(20,20))
     for i, idx in enumerate(indices):
         plt.subplot(5,2,i+1)
@@ -124,6 +129,10 @@ def plot_dict(r_dict:dict):
 
 def plot_size_vs_randomness(r_dict:dict):
     indices = [2**j for j in range(1, 11)]
+
+    # vendor
+    # indices = [i for i in range(2,51)]
+
     fig = plt.figure(figsize=(10,8))
 
     y_values = []
@@ -133,10 +142,14 @@ def plot_size_vs_randomness(r_dict:dict):
     for i, idx in enumerate(indices):
         plt.plot(range(len(indices)), y_values, color='teal', marker='o')
 
-    plt.xticks(range(10), labels=indices)
+    plt.xticks(range(len(indices)), labels=indices)
     # plt.ylim(0,15)
     plt.title(f"Input size vs Randomness", fontsize=18)
     plt.xlabel("Input size (2-1024)", fontsize=14, labelpad=10)
+
+    # vendor
+    # plt.xlabel("Input size (2-50)", fontsize=14, labelpad=10)
+
     plt.ylabel("Randomness", fontsize=14, labelpad=10)
     fig.tight_layout(pad=5)
     plt.savefig("size_vs_randomness")
