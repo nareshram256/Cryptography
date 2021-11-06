@@ -15,7 +15,7 @@ Command to run from terminal:<br>
 
 ### Output files
 
-Running above command will generate following files - 
+Running above command will generate following files:
 
 - `bit_flips_vs_randomness.png` ----- Randomness vs Bit flips in key for various input sizes
 - `size_vs_randomness.png` ----- Randomness vs Input size
