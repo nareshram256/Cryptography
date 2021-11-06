@@ -80,6 +80,8 @@ def randomness(text:bytes, counter_size:int):
 
 def rc4_analysis(key_size:int, counter_size:int, text:bytes):
     print("Calculating randomness...")
+
+    # main
     indices = [2**j for j in range(1, 11)]
 
     # vendor
@@ -128,6 +130,7 @@ def plot_dict(r_dict:dict):
     print("Saving plot...")
 
 def plot_size_vs_randomness(r_dict:dict):
+    # main
     indices = [2**j for j in range(1, 11)]
 
     # vendor
@@ -145,6 +148,8 @@ def plot_size_vs_randomness(r_dict:dict):
     plt.xticks(range(len(indices)), labels=indices)
     # plt.ylim(0,15)
     plt.title(f"Input size vs Randomness", fontsize=18)
+
+    # main
     plt.xlabel("Input size (2-1024)", fontsize=14, labelpad=10)
 
     # vendor
@@ -153,4 +158,40 @@ def plot_size_vs_randomness(r_dict:dict):
     plt.ylabel("Randomness", fontsize=14, labelpad=10)
     fig.tight_layout(pad=5)
     plt.savefig("size_vs_randomness")
+    print("Saving plot...")
+
+def similarity(text1:bytes, text2:bytes):
+    freq = 0
+    for b1, b2 in zip(text1, text2):
+        if b1 == b2:
+            freq += 1
+    return freq
+
+def avg_similarity(text:str, flips:int):
+    k1 = secrets.token_bytes(256)
+    sim = []
+    for _ in range(20):
+        rc4_1 = RC4(k1)
+        k2 = random_flip(k1, flips)
+        rc4_2 = RC4(k2)
+
+        c1 = rc4_1.encrypt(text)
+        c2 = rc4_2.encrypt(text)
+
+        sim.append(similarity(c1, c2))
+    return int(np.mean(sim))
+
+def plot_similarity(text:str):
+    sim_list = []
+    for bit_flips in range(1, 33):
+        sim_list.append(avg_similarity(text, bit_flips))
+
+    plt.figure(figsize=(12,6))
+    plt.plot(range(1, len(sim_list)+1), sim_list, marker='o', color='teal')
+    plt.ylim(0,15)
+    plt.xticks(range(1, len(sim_list)+1), [i for i in range(1, len(sim_list) + 1)])
+    plt.xlabel("Bit flips (1-32)", fontsize=14)
+    plt.ylabel("Similarity", fontsize=14)
+    plt.title("Similarity vs Bit flips", fontsize=18)
+    plt.savefig("similarity")
     print("Saving plot...")
