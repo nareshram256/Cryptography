@@ -13,5 +13,11 @@
 Command to run from terminal:<br>
 `python main.py <plaintext_file> `
 
+### Output files
 
+Running above command will generate following files - 
+
+1. bit_flips_vs_randomness.png ---- *Randomness vs Bit flips in key for various input sizes*
+2. size_vs_randomness.png ----- *Randomness vs Input size*
+3. similarity.png ----- *Randomness vs Input size for RC4 encryption on short messages*
 
